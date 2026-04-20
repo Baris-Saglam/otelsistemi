@@ -1,0 +1,2161 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elit Pansiyon Bergama</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #f5f0e8;
+        --warm-white: #faf7f2;
+        --terracotta: #c4704a;
+        --terracotta-dark: #a05535;
+        --earth: #7a5c3e;
+        --earth-light: #b89878;
+        --gold: #c9a84c;
+        --gold-light: #e8d5a0;
+        --dark: #2c2218;
+        --mid: #5c4a35;
+        --muted: #9a8878;
+        --border: rgba(122, 92, 62, 0.2);
+        --border-strong: rgba(122, 92, 62, 0.4);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Jost", sans-serif;
+        background: var(--warm-white);
+        color: var(--dark);
+        font-weight: 300;
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 400;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem 4rem;
+        background: rgba(250, 247, 242, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 0.5px solid var(--border);
+        transition: all 0.3s;
+      }
+      .nav-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--earth);
+        letter-spacing: 0.05em;
+        text-decoration: none;
+      }
+      .nav-logo span {
+        color: var(--terracotta);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--mid);
+        font-size: 0.8rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 400;
+        transition: color 0.2s;
+        position: relative;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--terracotta);
+        transition: width 0.3s;
+      }
+      .nav-links a:hover {
+        color: var(--terracotta);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .nav-cta {
+        padding: 0.5rem 1.5rem;
+        background: var(--terracotta);
+        color: var(--warm-white) !important;
+        border-radius: 0;
+      }
+      .nav-cta::after {
+        display: none !important;
+      }
+      .nav-cta:hover {
+        background: var(--terracotta-dark) !important;
+        color: var(--warm-white) !important;
+      }
+
+      /* SECTIONS */
+      section {
+        min-height: 100vh;
+      }
+
+      /* ═══ ANA SAYFA ═══ */
+      #anasayfa {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+      .hero-left {
+        background: var(--earth);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 8rem 4rem 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-left::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.06'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        pointer-events: none;
+      }
+      .hero-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+      }
+      .hero-title {
+        font-size: 4.5rem;
+        line-height: 1.1;
+        color: var(--cream);
+        font-weight: 300;
+        margin-bottom: 2rem;
+        font-style: italic;
+      }
+      .hero-title strong {
+        font-style: normal;
+        font-weight: 600;
+        color: var(--gold);
+        display: block;
+      }
+      .hero-desc {
+        color: var(--earth-light);
+        font-size: 0.95rem;
+        line-height: 1.9;
+        max-width: 380px;
+        margin-bottom: 3rem;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+      .btn-primary {
+        display: inline-block;
+        padding: 0.9rem 2.5rem;
+        background: var(--terracotta);
+        color: var(--warm-white);
+        text-decoration: none;
+        font-size: 0.8rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 400;
+        transition: background 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-primary:hover {
+        background: var(--terracotta-dark);
+      }
+      .btn-ghost {
+        display: inline-block;
+        padding: 0.9rem 2.5rem;
+        border: 1px solid var(--earth-light);
+        color: var(--earth-light);
+        text-decoration: none;
+        font-size: 0.8rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 400;
+        transition: all 0.2s;
+      }
+      .btn-ghost:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .hero-stats {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(201, 168, 76, 0.2);
+      }
+      .stat-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.5rem;
+        color: var(--gold);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        color: var(--earth-light);
+        margin-top: 0.3rem;
+        text-transform: uppercase;
+      }
+      .hero-right {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 0;
+      }
+      .hero-img {
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 60%,
+          rgba(44, 34, 24, 0.4)
+        );
+      }
+      .hero-img-1 {
+        background-color: var(--earth-light);
+        background-image: url("oda1.jpg");
+      }
+      .hero-img-2 {
+        background-color: #c4a882;
+        background-image: url("oda2.jpg");
+      }
+      .hero-badge {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 1.5rem;
+        z-index: 2;
+        background: rgba(44, 34, 24, 0.7);
+        backdrop-filter: blur(8px);
+        padding: 0.6rem 1rem;
+        color: var(--gold-light);
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+      }
+      .scroll-hint {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--earth-light);
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .scroll-line {
+        width: 1px;
+        height: 40px;
+        background: var(--earth-light);
+        animation: scrollAnim 2s ease-in-out infinite;
+      }
+      @keyframes scrollAnim {
+        0%,
+        100% {
+          height: 40px;
+          opacity: 1;
+        }
+        50% {
+          height: 20px;
+          opacity: 0.4;
+        }
+      }
+
+      /* Özellikler Bar */
+      .features-bar {
+        background: var(--cream);
+        padding: 3rem 4rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+        min-height: unset;
+      }
+      .feature-item {
+        padding: 2rem;
+        text-align: center;
+        border-right: 1px solid var(--border);
+        transition: background 0.2s;
+      }
+      .feature-item:last-child {
+        border-right: none;
+      }
+      .feature-item:hover {
+        background: var(--warm-white);
+      }
+      .feature-icon {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .feature-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        color: var(--earth);
+        margin-bottom: 0.5rem;
+      }
+      .feature-desc {
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      /* ═══ HAKKIMIZDA ═══ */
+      #hakkimizda {
+        min-height: 100vh;
+        background: var(--warm-white);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+      }
+      .about-images {
+        position: relative;
+        overflow: hidden;
+        background: var(--cream);
+      }
+      .about-img-main {
+        width: 100%;
+        height: 100%;
+        background: url("https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80")
+          center/cover no-repeat;
+        min-height: 600px;
+      }
+      .about-img-overlay {
+        position: absolute;
+        bottom: 3rem;
+        right: -2rem;
+        width: 260px;
+        height: 200px;
+        background: url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&q=80")
+          center/cover;
+        border: 6px solid var(--warm-white);
+        box-shadow: 0 20px 60px rgba(44, 34, 24, 0.2);
+      }
+      .about-ornament {
+        position: absolute;
+        top: 3rem;
+        left: 3rem;
+        width: 80px;
+        height: 80px;
+        border: 2px solid var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .about-ornament::before {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border: 1px solid rgba(201, 168, 76, 0.4);
+      }
+      .about-content {
+        padding: 6rem 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .section-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--terracotta);
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+      .section-divider {
+        width: 60px;
+        height: 2px;
+        background: var(--gold);
+        margin: 1.5rem 0;
+      }
+      .section-title {
+        font-size: 3rem;
+        line-height: 1.2;
+        color: var(--dark);
+        font-weight: 300;
+        margin-bottom: 1rem;
+      }
+      .section-title em {
+        color: var(--terracotta);
+        font-style: italic;
+      }
+      .about-body {
+        font-size: 0.95rem;
+        line-height: 1.9;
+        color: var(--mid);
+        margin-bottom: 1.5rem;
+      }
+      .about-quote {
+        border-left: 3px solid var(--gold);
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 1.3rem;
+        color: var(--earth);
+        line-height: 1.5;
+      }
+      .about-facts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+      .fact {
+        padding: 1.2rem;
+        background: var(--cream);
+        border-top: 2px solid var(--gold);
+      }
+      .fact-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        color: var(--terracotta);
+      }
+      .fact-text {
+        font-size: 0.75rem;
+        color: var(--muted);
+        letter-spacing: 0.05em;
+        margin-top: 0.3rem;
+      }
+
+      /* ═══ ODALAR ═══ */
+      #odalar {
+        min-height: 100vh;
+        background: var(--cream);
+        padding: 6rem 4rem;
+      }
+      .section-header {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 4rem;
+      }
+      .rooms-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .room-card {
+        background: var(--warm-white);
+        overflow: hidden;
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        cursor: pointer;
+        position: relative; /* Hover overlay için gerekli */
+      }
+
+      /* İNCELE Overlay Efekti */
+      .room-card::before {
+        content: "İncele";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        background: rgba(44, 34, 24, 0.8);
+        color: var(--gold-light);
+        padding: 0.8rem 2rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        opacity: 0;
+        z-index: 10;
+        transition: all 0.3s;
+        pointer-events: none;
+      }
+      .room-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+      .room-card:hover::before {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .room-card:hover .room-img-inner {
+        transform: scale(1.05);
+        filter: brightness(0.7);
+      }
+
+      .room-img {
+        height: 260px;
+        overflow: hidden;
+        position: relative;
+      }
+      .room-img-inner {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition:
+          transform 0.5s,
+          filter 0.3s;
+      }
+      .room-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--terracotta);
+        color: white;
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.8rem;
+      }
+      .room-body {
+        padding: 1.8rem;
+      }
+      .room-type {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.5rem;
+      }
+      .room-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        color: var(--dark);
+        margin-bottom: 0.8rem;
+      }
+      .room-desc {
+        font-size: 0.82rem;
+        line-height: 1.7;
+        color: var(--mid);
+        margin-bottom: 1.2rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* 2 satırda kes */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .room-amenities {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+      }
+      .amenity {
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        padding: 0.3rem 0.7rem;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      .room-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border);
+      }
+      .room-price {
+        font-family: "Cormorant Garamond", serif;
+      }
+      .room-price-num {
+        font-size: 1.8rem;
+        color: var(--terracotta);
+      }
+      .room-price-label {
+        font-size: 0.7rem;
+        color: var(--muted);
+      }
+      .btn-room {
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--earth);
+        border-bottom: 1px solid var(--earth);
+        text-decoration: none;
+        padding-bottom: 2px;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+        pointer-events: none; /* Kartın tıklanabilirliğini engellemesin */
+      }
+
+      /* ═══ ODA DETAY MODAL CSS ═══ */
+      .room-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+      }
+      .room-modal.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .room-modal-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(44, 34, 24, 0.85);
+        backdrop-filter: blur(8px);
+      }
+      .room-modal-content {
+        position: relative;
+        width: 90%;
+        max-width: 1100px;
+        height: 85vh;
+        background: var(--warm-white);
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        transform: translateY(30px);
+        transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        overflow: hidden;
+      }
+      .room-modal.active .room-modal-content {
+        transform: translateY(0);
+      }
+      .close-modal {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 10;
+        background: transparent;
+        border: 1px solid var(--border-strong);
+        color: var(--dark);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        border-radius: 50%;
+      }
+      .close-modal:hover {
+        background: var(--terracotta);
+        border-color: var(--terracotta);
+        color: white;
+        transform: rotate(90deg);
+      }
+
+      /* Modal Left (Gallery) */
+      .modal-left {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background: var(--dark);
+      }
+      .modal-main-img-container {
+        flex-grow: 1;
+        position: relative;
+        overflow: hidden;
+      }
+      .modal-main-img {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: opacity 0.3s ease;
+      }
+      .modal-thumbnails {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        height: 120px;
+        gap: 2px;
+        background: var(--dark);
+        padding-top: 2px;
+      }
+      .modal-thumb {
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: all 0.3s;
+        position: relative;
+      }
+      .modal-thumb:hover,
+      .modal-thumb.active {
+        opacity: 1;
+      }
+      .modal-thumb.active::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 3px solid var(--gold);
+      }
+
+      /* Modal Right (Info) */
+      .modal-right {
+        padding: 4rem 3rem;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      /* Custom Scrollbar for Modal */
+      .modal-right::-webkit-scrollbar {
+        width: 6px;
+      }
+      .modal-right::-webkit-scrollbar-track {
+        background: var(--cream);
+      }
+      .modal-right::-webkit-scrollbar-thumb {
+        background: var(--earth-light);
+      }
+
+      .modal-type {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--terracotta);
+        margin-bottom: 0.5rem;
+      }
+      .modal-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.8rem;
+        color: var(--dark);
+        margin-bottom: 0.5rem;
+        line-height: 1.1;
+      }
+      .modal-price-wrap {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .modal-price-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.2rem;
+        color: var(--gold);
+      }
+
+      .modal-features {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      .modal-feature-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        color: var(--mid);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .modal-feature-item i {
+        color: var(--terracotta);
+        font-size: 1.2rem;
+        font-style: normal;
+      }
+
+      .modal-desc-text {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: var(--mid);
+        margin-bottom: 2.5rem;
+      }
+
+      .modal-amenities-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        color: var(--earth);
+        margin-bottom: 1rem;
+      }
+      .modal-amenities-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+        margin-bottom: 3rem;
+      }
+      .modal-amenity {
+        font-size: 0.8rem;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .modal-amenity::before {
+        content: "✦";
+        color: var(--gold);
+        font-size: 0.7rem;
+      }
+
+      .modal-action {
+        margin-top: auto;
+      }
+      .modal-action .btn-primary {
+        width: 100%;
+        text-align: center;
+        padding: 1.2rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.2em;
+      }
+
+      /* ═══ GALERİ ═══ */
+      #galeri {
+        min-height: 100vh;
+        background: var(--dark);
+        padding: 6rem 4rem;
+      }
+      #galeri .section-eyebrow {
+        color: var(--gold);
+      }
+      #galeri .section-title {
+        color: var(--cream);
+      }
+      #galeri .section-divider {
+        background: var(--terracotta);
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 280px 280px;
+        gap: 4px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .gallery-item {
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+      .gallery-item:first-child {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+      }
+      .gallery-item:nth-child(5) {
+        grid-column: 3 / 5;
+        grid-row: 2 / 3;
+      }
+      .gallery-inner {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition:
+          transform 0.5s,
+          filter 0.3s;
+        filter: brightness(0.85);
+      }
+      .gallery-item:hover .gallery-inner {
+        transform: scale(1.05);
+        filter: brightness(1);
+      }
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+      .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(44, 34, 24, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .gallery-overlay-text {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 1.2rem;
+        color: white;
+        letter-spacing: 0.05em;
+      }
+      .gallery-caption {
+        text-align: center;
+        margin-top: 2.5rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--earth-light);
+      }
+
+      /* ═══ İLETİŞİM ═══ */
+      #iletisim {
+        min-height: 100vh;
+        background: var(--warm-white);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .contact-left {
+        background: var(--earth);
+        padding: 6rem 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .contact-left::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        border: 1px solid rgba(201, 168, 76, 0.15);
+        pointer-events: none;
+      }
+      .contact-left::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: -80px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 1px solid rgba(201, 168, 76, 0.1);
+        pointer-events: none;
+      }
+      .contact-left .section-eyebrow {
+        color: var(--gold);
+      }
+      .contact-left .section-title {
+        color: var(--cream);
+        margin-bottom: 3rem;
+      }
+      .contact-left .section-divider {
+        background: var(--terracotta);
+      }
+      .contact-info-list {
+        list-style: none;
+        margin-top: 2rem;
+      }
+      .contact-info-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+      }
+      .contact-info-list li:last-child {
+        border-bottom: none;
+      }
+      .contact-icon {
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(201, 168, 76, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        color: var(--gold);
+      }
+      .contact-info-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.3rem;
+      }
+      .contact-info-value {
+        font-size: 0.95rem;
+        color: var(--cream);
+        line-height: 1.6;
+      }
+      .contact-right {
+        padding: 6rem 4rem;
+      }
+      .contact-right .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-label {
+        display: block;
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.5rem;
+      }
+      .form-input,
+      .form-textarea {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        background: var(--cream);
+        border: 1px solid var(--border);
+        border-radius: 0;
+        font-family: "Jost", sans-serif;
+        font-size: 0.9rem;
+        color: var(--dark);
+        font-weight: 300;
+        transition: border-color 0.2s;
+        outline: none;
+      }
+      .form-input:focus,
+      .form-textarea:focus {
+        border-color: var(--terracotta);
+      }
+      .form-textarea {
+        height: 120px;
+        resize: vertical;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .form-submit {
+        width: 100%;
+        padding: 1rem;
+        background: var(--terracotta);
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-family: "Jost", sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-weight: 400;
+        transition: background 0.2s;
+      }
+      .form-submit:hover {
+        background: var(--terracotta-dark);
+      }
+      .map-container {
+        margin-top: 3rem;
+        border: 1px solid var(--border);
+        overflow: hidden;
+      }
+      .map-container iframe {
+        display: block;
+        width: 100%;
+        height: 220px;
+        filter: sepia(20%) saturate(80%);
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--dark);
+        padding: 3rem 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid rgba(201, 168, 76, 0.15);
+        min-height: unset;
+      }
+      .footer-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.3rem;
+        color: var(--cream);
+        letter-spacing: 0.1em;
+      }
+      .footer-logo span {
+        color: var(--gold);
+      }
+      .footer-copy {
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+      .footer-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .footer-links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.75rem;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--gold);
+      }
+
+      /* SECTION ENTRY ANIMATIONS */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-in {
+        animation: fadeUp 0.7s ease forwards;
+      }
+      .animate-in-delay {
+        animation: fadeUp 0.7s ease 0.15s forwards;
+        opacity: 0;
+      }
+      .animate-in-delay2 {
+        animation: fadeUp 0.7s ease 0.3s forwards;
+        opacity: 0;
+      }
+      .hero-left > * {
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+      }
+      .hero-left .hero-eyebrow {
+        animation-delay: 0.1s;
+      }
+      .hero-left .hero-title {
+        animation-delay: 0.25s;
+      }
+      .hero-left .hero-desc {
+        animation-delay: 0.4s;
+      }
+      .hero-left .hero-actions {
+        animation-delay: 0.55s;
+      }
+      .hero-left .hero-stats {
+        animation-delay: 0.7s;
+      }
+
+      @media (max-width: 900px) {
+        .room-modal-content {
+          grid-template-columns: 1fr;
+          height: 95vh;
+          overflow-y: auto;
+        }
+        .modal-left {
+          height: 40vh;
+          flex-shrink: 0;
+        }
+        .modal-thumbnails {
+          height: 80px;
+        }
+        .modal-right {
+          padding: 2.5rem 1.5rem;
+          height: auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          padding: 1rem 1.5rem;
+        }
+        .nav-links {
+          display: none;
+        }
+        #anasayfa {
+          grid-template-columns: 1fr;
+        }
+        .hero-left {
+          padding: 7rem 2rem 3rem;
+        }
+        .hero-title {
+          font-size: 3rem;
+        }
+        .hero-right {
+          display: none;
+        }
+        .features-bar {
+          grid-template-columns: 1fr 1fr;
+          padding: 2rem;
+        }
+        #hakkimizda {
+          grid-template-columns: 1fr;
+        }
+        .about-content {
+          padding: 3rem 2rem;
+        }
+        #odalar {
+          padding: 4rem 1.5rem;
+        }
+        .rooms-grid {
+          grid-template-columns: 1fr;
+          gap: 1px;
+        }
+        #galeri {
+          padding: 4rem 1.5rem;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto;
+        }
+        .gallery-item:first-child,
+        .gallery-item:nth-child(5) {
+          grid-column: auto;
+          grid-row: auto;
+        }
+        #iletisim {
+          grid-template-columns: 1fr;
+        }
+        .contact-right {
+          padding: 3rem 2rem;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        footer {
+          flex-direction: column;
+          gap: 1.5rem;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav>
+      <a href="#anasayfa" class="nav-logo">Elit <span>Bergama</span></a>
+      <ul class="nav-links">
+        <li><a href="#anasayfa">Ana Sayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#odalar">Odalar</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#iletisim" class="nav-cta">İletişim</a></li>
+      </ul>
+    </nav>
+
+    <!-- ═══ ANA SAYFA ═══ -->
+    <section id="anasayfa">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Bergama · Türkiye · Est. 2008</p>
+        <h1 class="hero-title">Tarihin <strong>Kalbinde</strong> Huzur</h1>
+        <p class="hero-desc">
+          Antik Bergama'nın büyülü atmosferinde, Ege'nin sıcaklığını ve
+          geleneksel misafirperverliğin zarafetini bir arada sunuyoruz.
+        </p>
+        <div class="hero-actions">
+          <a href="#odalar" class="btn-primary">Odaları Keşfet</a>
+          <a href="#hakkimizda" class="btn-ghost">Bizi Tanıyın</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">16</div>
+            <div class="stat-label">Butik Oda</div>
+          </div>
+          <div>
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Yıl Deneyim</div>
+          </div>
+          <div>
+            <div class="stat-num">4.9</div>
+            <div class="stat-label">Misafir Puanı</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-img hero-img-1">
+          <div class="hero-badge">Bergama Akropolü Manzarası</div>
+        </div>
+        <div class="hero-img hero-img-2">
+          <div class="hero-badge">Geleneksel Ege Kahvaltısı</div>
+        </div>
+      </div>
+      <div
+        class="scroll-hint"
+        style="position: absolute; bottom: 2rem; left: 35%"
+      >
+        <span>Keşfet</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ÖZELLİKLER BAR -->
+    <section class="features-bar">
+      <div class="feature-item">
+        <span class="feature-icon">🏛️</span>
+        <div class="feature-title">Tarihi Konum</div>
+        <div class="feature-desc">Bergama Akropolü'ne yürüme mesafesinde</div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🍽️</span>
+        <div class="feature-title">Ege Mutfağı</div>
+        <div class="feature-desc">Her sabah taze yöresel kahvaltı</div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🌿</span>
+        <div class="feature-title">Bahçe & Teras</div>
+        <div class="feature-desc">Tarihi surlarla çevrili yeşil avlu</div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">✦</span>
+        <div class="feature-title">Özel Tur Hizmeti</div>
+        <div class="feature-desc">Uzman rehberli antika gezileri</div>
+      </div>
+    </section>
+
+    <!-- ═══ HAKKIMIZDA ═══ -->
+    <section id="hakkimizda">
+      <div class="about-images">
+        <div class="about-img-main"></div>
+        <div class="about-img-overlay"></div>
+        <div class="about-ornament"></div>
+      </div>
+      <div class="about-content">
+        <p class="section-eyebrow">Hikayemiz</p>
+        <h2 class="section-title">Bergama'nın <em>Ruhunu</em> Taşıyoruz</h2>
+        <div class="section-divider"></div>
+        <p class="about-body">
+          Elit Pansiyon Bergama, 2008 yılında Ege'nin kadim topraklarında,
+          tarihin ve doğanın iç içe geçtiği bu eşsiz şehirde kapılarını açtı.
+          Bergama'nın tarihi dokusunu koruyarak restore edilmiş geleneksel taş
+          mimarimiz, ziyaretçilerimize zaman yolculuğu yaşatıyor.
+        </p>
+        <p class="about-body">
+          Her köşesinde yüzyıllık kültürün izlerini taşıyan pansiyonumuz; sıcak
+          el dokuması kilimler, özgün ahşap işçiliği ve yerel sanatçıların
+          eserleriyle süslenmiştir. Amacımız, modern konforun tüm olanaklarını
+          geleneksel Anadolu misafirperverliğiyle birleştirmek.
+        </p>
+        <blockquote class="about-quote">
+          "Bergama'yı bir kez görmek yetmez; ona dönmek bir ihtiyaca dönüşür."
+        </blockquote>
+        <div class="about-facts">
+          <div class="fact">
+            <div class="fact-num">2008</div>
+            <div class="fact-text">Kuruluş yılı</div>
+          </div>
+          <div class="fact">
+            <div class="fact-num">500m</div>
+            <div class="fact-text">Akropol'e mesafe</div>
+          </div>
+          <div class="fact">
+            <div class="fact-num">16</div>
+            <div class="fact-text">Butik oda</div>
+          </div>
+          <div class="fact">
+            <div class="fact-num">%100</div>
+            <div class="fact-text">Yöresel malzeme</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ ODALAR ═══ -->
+    <section id="odalar">
+      <div class="section-header">
+        <p class="section-eyebrow">Konaklamanız</p>
+        <h2 class="section-title" style="font-size: 2.8rem">
+          Özenle <em>Tasarlanmış</em> Odalar
+        </h2>
+        <div class="section-divider" style="margin: 1.5rem auto"></div>
+        <p style="font-size: 0.9rem; color: var(--muted); line-height: 1.8">
+          Her odamız tarihi dokunun sıcaklığını modern konforla harmanlayarak
+          benzersiz bir konaklama deneyimi sunar. Tüm fotoğrafları ve detayları
+          görmek için odaya tıklayın.
+        </p>
+      </div>
+      <div class="rooms-grid">
+        <!-- Oda 1 -->
+        <div class="room-card" data-room="ege">
+          <div class="room-img">
+            <div
+              class="room-img-inner"
+              style="background-image: url(oda1.png)"
+            ></div>
+            <span class="room-badge">Popüler</span>
+          </div>
+          <div class="room-body">
+            <div class="room-type">Standart</div>
+            <h3 class="room-name">Ege Odası</h3>
+            <p class="room-desc">
+              Serin zeytinliklere bakan manzarasıyla huzur dolu bir konaklama.
+              Geleneksel kilim ve ahşap detayları ile bezeli.
+            </p>
+            <div class="room-amenities">
+              <span class="amenity">Klima</span>
+              <span class="amenity">Wi-Fi</span>
+              <span class="amenity">TV</span>
+              <span class="amenity">Minibar</span>
+            </div>
+            <div class="room-footer">
+              <div class="room-price">
+                <span class="room-price-num">₺1.200</span>
+                <div class="room-price-label">gecelik / kişi başı</div>
+              </div>
+              <span class="btn-room">İncele →</span>
+            </div>
+          </div>
+        </div>
+        <!-- Oda 2 -->
+        <div class="room-card" data-room="akropol">
+          <div class="room-img">
+            <div
+              class="room-img-inner"
+              style="background-image: url(oda2.png)"
+            ></div>
+            <span class="room-badge" style="background: var(--gold)">Lüks</span>
+          </div>
+          <div class="room-body">
+            <div class="room-type">Deluxe</div>
+            <h3 class="room-name">Akropol Süiti</h3>
+            <p class="room-desc">
+              Bergama Akropolü'nün panoramik manzarasına sahip geniş teras
+              odamız. Özel jakuzi ve el yapımı mobilyalar.
+            </p>
+            <div class="room-amenities">
+              <span class="amenity">Jakuzi</span>
+              <span class="amenity">Teras</span>
+              <span class="amenity">Wi-Fi</span>
+              <span class="amenity">Minibar</span>
+            </div>
+            <div class="room-footer">
+              <div class="room-price">
+                <span class="room-price-num">₺2.800</span>
+                <div class="room-price-label">gecelik / kişi başı</div>
+              </div>
+              <span class="btn-room">İncele →</span>
+            </div>
+          </div>
+        </div>
+        <!-- Oda 3 -->
+        <div class="room-card" data-room="bahce">
+          <div class="room-img">
+            <div
+              class="room-img-inner"
+              style="background-image: url(oda3.png)"
+            ></div>
+          </div>
+          <div class="room-body">
+            <div class="room-type">Standart</div>
+            <h3 class="room-name">Bahçe Odası</h3>
+            <p class="room-desc">
+              Tarihi taş duvara yaslanmış, koku bahçesine açılan huzurlu odamız.
+              Sabah kahvaltısına özel verandası.
+            </p>
+            <div class="room-amenities">
+              <span class="amenity">Veranda</span>
+              <span class="amenity">Klima</span>
+              <span class="amenity">Wi-Fi</span>
+            </div>
+            <div class="room-footer">
+              <div class="room-price">
+                <span class="room-price-num">₺1.500</span>
+                <div class="room-price-label">gecelik / kişi başı</div>
+              </div>
+              <span class="btn-room">İncele →</span>
+            </div>
+          </div>
+        </div>
+        <!-- Oda 4 -->
+        <div class="room-card" data-room="aile">
+          <div class="room-img">
+            <div
+              class="room-img-inner"
+              style="background-image: url(oda4.png)"
+            ></div>
+          </div>
+          <div class="room-body">
+            <div class="room-type">Aile</div>
+            <h3 class="room-name">Anadolu Aile Odası</h3>
+            <p class="room-desc">
+              Dört kişilik aileler için geniş ve konforlu, iki yatak odalı
+              bağlantılı konaklama seçeneği.
+            </p>
+            <div class="room-amenities">
+              <span class="amenity">2 Yatak Odası</span>
+              <span class="amenity">Oturma Alanı</span>
+              <span class="amenity">Klima</span>
+            </div>
+            <div class="room-footer">
+              <div class="room-price">
+                <span class="room-price-num">₺3.200</span>
+                <div class="room-price-label">gecelik / aile</div>
+              </div>
+              <span class="btn-room">İncele →</span>
+            </div>
+          </div>
+        </div>
+        <!-- Oda 5 -->
+        <div class="room-card" data-room="avlu">
+          <div class="room-img">
+            <div
+              class="room-img-inner"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80&quot;);
+              "
+            ></div>
+          </div>
+          <div class="room-body">
+            <div class="room-type">Ekonomik</div>
+            <h3 class="room-name">İç Avlu Odası</h3>
+            <p class="room-desc">
+              Sessiz iç avluya bakan, sade ve şık bir konaklama. Bütçe dostu
+              seçeneğimiz.
+            </p>
+            <div class="room-amenities">
+              <span class="amenity">Wi-Fi</span>
+              <span class="amenity">Klima</span>
+              <span class="amenity">TV</span>
+            </div>
+            <div class="room-footer">
+              <div class="room-price">
+                <span class="room-price-num">₺850</span>
+                <div class="room-price-label">gecelik / kişi başı</div>
+              </div>
+              <span class="btn-room">İncele →</span>
+            </div>
+          </div>
+        </div>
+        <!-- Oda 6 -->
+        <div class="room-card" data-room="ronesans">
+          <div class="room-img">
+            <div
+              class="room-img-inner"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=600&q=80&quot;);
+              "
+            ></div>
+            <span class="room-badge" style="background: var(--dark)">Yeni</span>
+          </div>
+          <div class="room-body">
+            <div class="room-type">Premium</div>
+            <h3 class="room-name">Rönesans Odası</h3>
+            <p class="room-desc">
+              En yeni odamız; Osmanlı ve Helenistik esintileri modern yorumla
+              buluşturan özel dekorasyon anlayışı.
+            </p>
+            <div class="room-amenities">
+              <span class="amenity">Özel Banyo</span>
+              <span class="amenity">Kütüphane</span>
+              <span class="amenity">Jakuzi</span>
+            </div>
+            <div class="room-footer">
+              <div class="room-price">
+                <span class="room-price-num">₺2.200</span>
+                <div class="room-price-label">gecelik / kişi başı</div>
+              </div>
+              <span class="btn-room">İncele →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GALERİ ═══ -->
+    <section id="galeri">
+      <div class="section-header" style="margin-bottom: 3rem">
+        <p class="section-eyebrow">Fotoğraflar</p>
+        <h2 class="section-title">Elit Pansiyon'dan <em>Kareler</em></h2>
+        <div
+          class="section-divider"
+          style="margin: 1.5rem auto; background: var(--terracotta)"
+        ></div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div
+            class="gallery-inner"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&q=80&quot;);
+            "
+          ></div>
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-text">Dış Cephe</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div
+            class="gallery-inner"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=400&q=80&quot;);
+            "
+          ></div>
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-text">Lüks Oda</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div
+            class="gallery-inner"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80&quot;);
+            "
+          ></div>
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-text">Ege Kahvaltısı</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div
+            class="gallery-inner"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=400&q=80&quot;);
+            "
+          ></div>
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-text">Bahçe Terası</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div
+            class="gallery-inner"
+            style="background-image: url(oda3.jpg)"
+          ></div>
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-text">Panoramik Manzara</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div
+            class="gallery-inner"
+            style="background-image: url(oda4.png)"
+          ></div>
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-text">Avlu & Havuz</span>
+          </div>
+        </div>
+      </div>
+      <p class="gallery-caption">
+        Daha fazla fotoğraf için sosyal medya hesaplarımızı ziyaret edin
+      </p>
+    </section>
+
+    <!-- ═══ İLETİŞİM ═══ -->
+    <section id="iletisim">
+      <div class="contact-left">
+        <p class="section-eyebrow">Ulaşın</p>
+        <h2 class="section-title">Bize <em>Yazın</em></h2>
+        <div class="section-divider"></div>
+        <ul class="contact-info-list">
+          <li>
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-info-label">Adres</div>
+              <div class="contact-info-value">
+                Barbaros Mah. Akropol Cad. No:12<br />Bergama, İzmir 35700
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-info-label">Telefon</div>
+              <div class="contact-info-value">
+                +90 (232) 632 00 00<br />+90 (532) 000 00 00
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">✉</div>
+            <div>
+              <div class="contact-info-label">E-Posta</div>
+              <div class="contact-info-value">
+                info@elitbergama.com<br />rezervasyon@elitbergama.com
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">🕐</div>
+            <div>
+              <div class="contact-info-label">Check-in / Check-out</div>
+              <div class="contact-info-value">Giriş: 14:00 · Çıkış: 12:00</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+     <div class="contact-right">
+        <p class="section-eyebrow">Rezervasyon</p>
+        <h2 class="section-title">Yerinizi <em>Ayırtın</em></h2>
+        <div class="section-divider"></div>
+        <br />
+        
+        <!-- FORM BAŞLANGICI -->
+        <!-- "action" kısmına kendi e-posta adresini yazmalısın -->
+        <form action="https://formsubmit.co/ardasimsek323@gmail.com" method="POST">
+          
+          <!-- FormSubmit Ayarları (İsteğe bağlı) -->
+          <input type="hidden" name="_subject" value="Yeni Rezervasyon Talebi!">
+          <input type="hidden" name="_captcha" value="false"> <!-- Robot doğrulamasını kapatır -->
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Ad Soyad</label>
+              <!-- name="" etiketleri mailine düşecek başlıkları belirler -->
+              <input type="text" name="Ad_Soyad" class="form-input" placeholder="Adınız Soyadınız" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Telefon</label>
+              <input type="tel" name="Telefon" class="form-input" placeholder="+90 5XX XXX XX XX" required />
+            </div>
+          </div>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Giriş Tarihi</label>
+              <input type="date" name="Giris_Tarihi" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Çıkış Tarihi</label>
+              <input type="date" name="Cikis_Tarihi" class="form-input" required />
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">E-Posta</label>
+            <input type="email" name="Email" class="form-input" placeholder="mail@ornek.com" required />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Mesajınız</label>
+            <textarea name="Mesaj" class="form-textarea" placeholder="Özel isteklerinizi, oda tercihinizi veya sorularınızı buraya yazabilirsiniz..."></textarea>
+          </div>
+          
+          <button type="submit" class="form-submit">Rezervasyon Talebi Gönder</button>
+        </form>
+        <!-- FORM BİTİŞİ -->
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3096.377745443769!2d27.150899031944864!3d39.09786929039778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ba02bbea840e33%3A0x4236bdaaf626a481!2sEL%C4%B0T%20PANS%C4%B0YON%20BERGAMA!5e0!3m2!1str!2str!4v1776702576906!5m2!1str!2str"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+
+        <p class="section-eyebrow">Rezervasyon</p>
+        <h2 class="section-title">Yerinizi <em>Ayırtın</em></h2>
+        <div class="section-divider"></div>
+        <br />
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Ad Soyad</label>
+            <input
+              type="text"
+              class="form-input"
+              placeholder="Adınız Soyadınız"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telefon</label>
+            <input
+              type="tel"
+              class="form-input"
+              placeholder="+90 5XX XXX XX XX"
+            />
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Giriş Tarihi</label>
+            <input type="date" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Çıkış Tarihi</label>
+            <input type="date" class="form-input" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-Posta</label>
+          <input type="email" class="form-input" placeholder="mail@ornek.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mesajınız</label>
+          <textarea
+            class="form-textarea"
+            placeholder="Özel isteklerinizi, oda tercihinizi veya sorularınızı buraya yazabilirsiniz..."
+          ></textarea>
+        </div>
+        <button class="form-submit">Rezervasyon Talebi Gönder</button>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3096.377745443769!2d27.150899031944864!3d39.09786929039778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ba02bbea840e33%3A0x4236bdaaf626a481!2sEL%C4%B0T%20PANS%C4%B0YON%20BERGAMA!5e0!3m2!1str!2str!4v1776702576906!5m2!1str!2str"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">Elit <span>Bergama</span></div>
+      <ul class="footer-links">
+        <li><a href="#anasayfa">Ana Sayfa</a></li>
+        <li><a href="#odalar">Odalar</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+      <p class="footer-copy">
+        © 2025 Elit Pansiyon Bergama. Tüm hakları saklıdır.
+      </p>
+    </footer>
+
+    <!-- ═══ ODA DETAY MODAL HTML ═══ -->
+    <div class="room-modal" id="roomModal">
+      <div class="room-modal-overlay" onclick="closeModal()"></div>
+      <div class="room-modal-content">
+        <button class="close-modal" onclick="closeModal()">✕</button>
+
+        <!-- Sol Taraf: Galeri -->
+        <div class="modal-left">
+          <div class="modal-main-img-container">
+            <div class="modal-main-img" id="modalMainImg"></div>
+          </div>
+          <div class="modal-thumbnails" id="modalThumbGrid">
+            <!-- JS ile doldurulacak -->
+          </div>
+        </div>
+
+        <!-- Sağ Taraf: İçerik -->
+        <div class="modal-right">
+          <div class="modal-type" id="modalType"></div>
+          <h2 class="modal-name" id="modalName"></h2>
+
+          <div class="modal-price-wrap">
+            <span class="modal-price-num" id="modalPrice"></span>
+            <span class="room-price-label" id="modalPriceLabel">gecelik</span>
+          </div>
+
+          <div class="modal-features">
+            <div class="modal-feature-item">
+              <i>👥</i> <span id="modalCapacity"></span>
+            </div>
+            <div class="modal-feature-item">
+              <i>📐</i> <span id="modalSize"></span>
+            </div>
+            <div class="modal-feature-item">
+              <i>🛏️</i> <span id="modalBed"></span>
+            </div>
+          </div>
+
+          <p class="modal-desc-text" id="modalDesc"></p>
+
+          <h4 class="modal-amenities-title">Oda Özellikleri</h4>
+          <div class="modal-amenities-grid" id="modalAmenities">
+            <!-- JS ile doldurulacak -->
+          </div>
+
+          <div class="modal-action">
+            <a
+              href="#iletisim"
+              class="btn-primary"
+              style="display: block"
+              onclick="closeModal()"
+              >Bu Odayı Rezerve Et</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* --- Mevcut Intersection Observer ve Form Kodlarınız --- */
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target
+                .querySelectorAll(
+                  ".room-card, .gallery-item, .fact, .contact-info-list li",
+                )
+                .forEach((el, i) => {
+                  el.style.animation = `fadeUp 0.6s ease ${i * 0.1}s forwards`;
+                  el.style.opacity = "0";
+                });
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document
+        .querySelectorAll("#odalar, #galeri, #hakkimizda, #iletisim")
+        .forEach((s) => observer.observe(s));
+
+      document
+        .querySelector(".form-submit")
+        .addEventListener("click", function () {
+          this.textContent = "✓ Talebiniz Alındı!";
+          this.style.background = "var(--earth)";
+          setTimeout(() => {
+            this.textContent = "Rezervasyon Talebi Gönder";
+            this.style.background = "";
+          }, 3000);
+        });
+
+      /* --- YENİ EKLENEN: Oda Detay Modal JavaScript Kodları --- */
+
+      const roomData = {
+        ege: {
+          name: "Ege Odası",
+          type: "Standart Konaklama",
+          price: "₺1.200",
+          priceLabel: "gecelik / kişi başı",
+          capacity: "2 Yetişkin",
+          size: "24 m²",
+          bed: "1 Çift Kişilik Yatak",
+          desc: "Ege'nin o eşsiz zeytin ağaçlarına bakan pencereleriyle ruhunuzu dinlendirecek bir alan tasarladık. El dokuması Bergama halıları ve yöresel ahşap oyma işçiliğinin modern konforla buluştuğu Ege Odası, size tarihin kalbinde sıcak bir yuva sunuyor. Doğal ışık alan ferah yapısı sayesinde güne zinde başlayacaksınız.",
+          amenities: [
+            "Ücretsiz Yüksek Hızlı Wi-Fi",
+            "Inverter Klima",
+            "Akıllı LED TV",
+            "Organik Banyo Seti",
+            "Minibar",
+            "Dağ & Zeytinlik Manzarası",
+          ],
+          images: [
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&q=80",
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&q=80",
+            "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1000&q=80",
+            "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1000&q=80",
+          ],
+        },
+        akropol: {
+          name: "Akropol Süiti",
+          type: "Deluxe Deneyim",
+          price: "₺2.800",
+          priceLabel: "gecelik / kişi başı",
+          capacity: "2 Yetişkin",
+          size: "45 m² + Teras",
+          bed: "1 King Size Yatak",
+          desc: "Tarihi Bergama Akropolü'nün büyüleyici manzarasına karşı kahvenizi yudumlayabileceğiniz özel teraslı imza odamız. İç mekan tasarımında kullanılan altın varaklı aynalar ve antika mobilyalar, lüks ve tarihi bir araya getiriyor. Odaya özel çift kişilik jakuzi ile günün yorgunluğunu krallara layık bir şekilde atın.",
+          amenities: [
+            "Panoramik Akropol Manzaralı Teras",
+            "Çift Kişilik Özel Jakuzi",
+            "Şömine",
+            "Espresso Makinesi",
+            "Premium Buklet Malzemeleri",
+            "Geniş Oturma Alanı",
+            "Bornoz & Terlik Seti",
+            "Özel Karşılama İkramı",
+          ],
+          images: [
+            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1000&q=80",
+            "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1000&q=80",
+            "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1000&q=80",
+            "https://images.unsplash.com/photo-1600607686527-6fb886090705?w=1000&q=80",
+          ],
+        },
+        bahce: {
+          name: "Bahçe Odası",
+          type: "Standart Konaklama",
+          price: "₺1.500",
+          priceLabel: "gecelik / kişi başı",
+          capacity: "2 Yetişkin + 1 Çocuk",
+          size: "28 m²",
+          bed: "1 Çift K. + 1 Tek K. Yatak",
+          desc: "Tarihi taş duvara yaslanmış, lavanta ve yasemin kokulu bahçemize doğrudan açılan huzur dolu bir sığınak. Odanın hemen önündeki size özel verandada sabah kahvaltınızı yapabilir veya akşam kitap okurken doğanın sesini dinleyebilirsiniz.",
+          amenities: [
+            "Özel Bahçe Verandası",
+            "Klima",
+            "Ücretsiz Wi-Fi",
+            "Çay/Kahve Seti",
+            "Emanet Kasası",
+            "Saç Kurutma Makinesi",
+          ],
+          images: [
+            "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?w=1000&q=80",
+            "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=1000&q=80",
+            "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80",
+            "https://images.unsplash.com/photo-1583847268964-b28ce8fca921?w=1000&q=80",
+          ],
+        },
+        aile: {
+          name: "Anadolu Aile Odası",
+          type: "Geniş Aile Odası",
+          price: "₺3.200",
+          priceLabel: "gecelik / 4 Kişilik Aile",
+          capacity: "4 Yetişkin veya 2 Yet. 2 Çocuk",
+          size: "55 m² (Ara Kapılı)",
+          bed: "1 Çift K. + 2 Tek K. Yatak",
+          desc: "Kalabalık aileler veya arkadaş grupları için tasarlanmış, ara kapı ile birbirine bağlanan iki ayrı yatak odasından oluşur. Geniş ve konforlu yapısı sayesinde herkesin kendine ait bir özel alanı bulunurken, ortak oturma alanında keyifli vakit geçirilebilir.",
+          amenities: [
+            "2 Ayrı Yatak Odası",
+            "Geniş Ortak Banyo",
+            "Ortak Oturma Alanı",
+            "2 Adet LED TV",
+            "Mini Buzdolabı",
+            "Çocuk Güvenlik Prizleri",
+            "Ücretsiz Wi-Fi",
+          ],
+          images: [
+            "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1000&q=80",
+            "https://images.unsplash.com/photo-1560185016-395ebfc5148f?w=1000&q=80",
+            "https://images.unsplash.com/photo-1522771731535-6ff84c0c4217?w=1000&q=80",
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1000&q=80",
+          ],
+        },
+        avlu: {
+          name: "İç Avlu Odası",
+          type: "Ekonomik Seçenek",
+          price: "₺850",
+          priceLabel: "gecelik / kişi başı",
+          capacity: "1 veya 2 Yetişkin",
+          size: "18 m²",
+          bed: "1 Çift Kişilik Yatak",
+          desc: "Otelin sessiz iç avlusuna bakan, gereksiz detaylardan arındırılmış, minimalist ve bütçe dostu odamız. Dışarıda Bergama'yı keşfederek geçireceğiniz yoğun bir günün ardından kaliteli bir uyku çekmek için ideal, loş ve huzurlu bir ortam sunar.",
+          amenities: [
+            "Klima",
+            "Tavan Vantilatörü",
+            "Ücretsiz Wi-Fi",
+            "Çalışma Masası",
+            "Günlük Temizlik",
+            "Banyo Seti",
+          ],
+          images: [
+            "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1000&q=80",
+            "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1000&q=80",
+            "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=1000&q=80",
+            "https://images.unsplash.com/photo-1499916078039-922301b0eb9b?w=1000&q=80",
+          ],
+        },
+        ronesans: {
+          name: "Rönesans Odası",
+          type: "Premium Tasarım",
+          price: "₺2.200",
+          priceLabel: "gecelik / kişi başı",
+          capacity: "2 Yetişkin",
+          size: "35 m²",
+          bed: "1 Queen Size Yatak",
+          desc: "Helenistik dönemin estetiği ile Osmanlı sanatı motiflerinin bir araya geldiği en yeni konsept odamız. Odaya entegre edilmiş mini kütüphane, el boyaması duvar freskleri ve ayaklı küveti ile romantik çiftler ve sanatseverler için unutulmaz bir atmosfere sahiptir.",
+          amenities: [
+            "Oda İçi Ayaklı Klasik Küvet",
+            "Mini Kütüphane",
+            "Bluetooth Ses Sistemi",
+            "Nespresso Makinesi",
+            "Kaz Tüyü Yastık Menüsü",
+            "Premium Banyo Seti",
+            "Meyve Sepeti İkramı",
+          ],
+          images: [
+            "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1000&q=80",
+            "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1000&q=80",
+            "https://images.unsplash.com/photo-1617104424032-b9bd6972d0e4?w=1000&q=80",
+            "https://images.unsplash.com/photo-1630587148265-761cbd139043?w=1000&q=80",
+          ],
+        },
+      };
+
+      const modal = document.getElementById("roomModal");
+      const mainImg = document.getElementById("modalMainImg");
+      const thumbGrid = document.getElementById("modalThumbGrid");
+
+      function openModal(roomId) {
+        const data = roomData[roomId];
+        if (!data) return;
+
+        // Metinleri Doldur
+        document.getElementById("modalType").textContent = data.type;
+        document.getElementById("modalName").textContent = data.name;
+        document.getElementById("modalPrice").textContent = data.price;
+        document.getElementById("modalPriceLabel").textContent =
+          data.priceLabel;
+        document.getElementById("modalCapacity").textContent = data.capacity;
+        document.getElementById("modalSize").textContent = data.size;
+        document.getElementById("modalBed").textContent = data.bed;
+        document.getElementById("modalDesc").textContent = data.desc;
+
+        // Özellikleri Doldur
+        const amenitiesContainer = document.getElementById("modalAmenities");
+        amenitiesContainer.innerHTML = "";
+        data.amenities.forEach((item) => {
+          const div = document.createElement("div");
+          div.className = "modal-amenity";
+          div.textContent = item;
+          amenitiesContainer.appendChild(div);
+        });
+
+        // Galeriyi Doldur
+        setMainImage(data.images[0]);
+
+        thumbGrid.innerHTML = "";
+        data.images.forEach((imgUrl, index) => {
+          const thumb = document.createElement("div");
+          thumb.className = "modal-thumb" + (index === 0 ? " active" : "");
+          thumb.style.backgroundImage = `url('${imgUrl}')`;
+          thumb.onclick = () => {
+            setMainImage(imgUrl);
+            document
+              .querySelectorAll(".modal-thumb")
+              .forEach((t) => t.classList.remove("active"));
+            thumb.classList.add("active");
+          };
+          thumbGrid.appendChild(thumb);
+        });
+
+        // Modalı Göster (Scrollu Kapat)
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function setMainImage(url) {
+        mainImg.style.opacity = 0;
+        setTimeout(() => {
+          mainImg.style.backgroundImage = `url('${url}')`;
+          mainImg.style.opacity = 1;
+        }, 150);
+      }
+
+      function closeModal() {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto"; // Scrollu geri aç
+      }
+
+      // Oda Kartlarına Tıklama Olayı (Eski href linklerini ezip modalı açar)
+      document.querySelectorAll(".room-card").forEach((card) => {
+        card.addEventListener("click", function (e) {
+          e.preventDefault(); // Tüm kart içindeki eskix link davranışını engelle
+          const roomId = this.getAttribute("data-room");
+          openModal(roomId);
+        });
+      });
+
+      // Escape tuşu ile modalı kapatma
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>
